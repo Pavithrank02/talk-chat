@@ -8,7 +8,7 @@ const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes")
 const path = require("path");
-const PORT = process.env.PORT || 5000
+
 dotenv.config()
 connectDb()
 const app = express();
@@ -34,13 +34,23 @@ app.use("/api/message", messageRoutes);
 const __dirname1 = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
+  // Serve static assets in production
   app.use(express.static(path.join(__dirname1, "/frontend/build")));
-
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
-  );
+  console.log("3");
+  // Catch all routes and serve index.html
+  app.get("*", (req, res) => {
+    try {
+      console.log(req, "3");
+      res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
+    } catch (error) {
+      console.error("Error serving index.html:", error);
+      res.status(500).send("Error serving index.html");
+    }
+  });
 } else {
+  // Serve a simple message for other routes in development
   app.get("/", (req, res) => {
+    console.log("out");
     res.send("API is running..");
   });
 }
@@ -49,6 +59,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(notFound)
 app.use(errorHandler)
+const PORT = process.env.PORT || 5000
 const server = app.listen(PORT, console.log(`server is running in ${PORT}`.yellow.bold))
 
 const io = require("socket.io")(server, {
