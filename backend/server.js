@@ -8,7 +8,7 @@ const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes")
 const path = require("path");
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5000
 dotenv.config()
 connectDb()
 const app = express();
