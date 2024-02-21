@@ -10,7 +10,6 @@ const messageRoutes = require("./routes/messageRoutes")
 const path = require("path");
 const PORT = process.env.PORT
 dotenv.config()
-console.log(PORT)
 connectDb()
 const app = express();
 app.use(express.json())
