@@ -8,12 +8,11 @@ const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes")
 const path = require("path");
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 dotenv.config()
-
+console.log(PORT)
 connectDb()
 const app = express();
-
 app.use(express.json())
 app.get("/", (req, res) => {
   res.send("API is running")
