@@ -114,7 +114,7 @@ const Login = () => {
         }}
         isLoading={loading}
       >
-        Login
+        Guest Login
       </Button>
     </VStack>
   )

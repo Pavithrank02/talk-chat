@@ -8,6 +8,7 @@ const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes")
 const path = require("path");
+const expressStaticGzip = require('express-static-gzip');
 
 dotenv.config()
 connectDb()
@@ -34,18 +35,12 @@ app.use("/api/message", messageRoutes);
 const __dirname1 = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
-  // Serve static assets in production
-  app.use(express.static(path.join(__dirname1, "/frontend/build")));
-  console.log("3");
-  // Catch all routes and serve index.html
+  // Serve compressed static assets in production
+  app.use(express.static(path.join(__dirname1, 'frontend', 'build')));
+
+  // Catch all routes and serve index.html for client-side routing
   app.get("*", (req, res) => {
-    try {
-      console.log(req, "3");
-      res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
-    } catch (error) {
-      console.error("Error serving index.html:", error);
-      res.status(500).send("Error serving index.html");
-    }
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
   });
 } else {
   // Serve a simple message for other routes in development
