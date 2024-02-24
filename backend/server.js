@@ -8,7 +8,6 @@ const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes")
 const path = require("path");
-const expressStaticGzip = require('express-static-gzip');
 
 dotenv.config()
 connectDb()
