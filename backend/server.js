@@ -13,9 +13,7 @@ dotenv.config()
 connectDb()
 const app = express();
 app.use(express.json())
-app.get("/", (req, res) => {
-  res.send("API is running")
-});
+
 app.get("/api/chat", (req, res) => {
   res.send(chats)
 });
