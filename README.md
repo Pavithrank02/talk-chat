@@ -3,7 +3,6 @@
  - Login Page
  - Chat Page
  -  Create group pop-up
- - 
 # Talk_Chat Features
 - Login Page
   - Registered User can enter their username and password 
@@ -26,5 +25,7 @@
 # Summary 
   - A MERN Stack based chat application which uses Socket.Io for connection between two users and all the information are handled from Mongodb.
   - It allows users to sign up and using the details, users can login into the account for personal chating. 
+  -  Users can add their friends by searching their profile. 
+  - User can logout anytime by simple click. 
 
-  
+
