@@ -2,14 +2,15 @@
  - Sign Up Page
  ![image](frontend/src/assets/images/image1.JPG)
  - Login Page
- ![image](src/assets/images/image2.JPG)
+ ![image](frontend/src/assets/images/image2.JPG)
  - Chat Page
-  ![image](src/assets/images/image4.JPG)
+  ![image](frontend/src/assets/images/image4.JPG)
  -  Create group pop-up
 # Talk_Chat Features
 - Login Page
   - Registered User can enter their username and password 
   - Non registered user can use guest login for entering chats. 
+  ![image](frontend/src/assets/images/image3.JPG)
 - SignUp Page
   - Users are required to provide valid details like name, email, password and confirm password for registration. 
   - Adding images can also be done and its optional. 
