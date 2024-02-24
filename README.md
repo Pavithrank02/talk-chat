@@ -1,6 +1,6 @@
 # Talk-Chat
  - Sign Up Page
- ![image](src/assets/images/image1.JPG)
+ ![image](frontend/src/assets/images/image1.JPG)
  - Login Page
  ![image](src/assets/images/image2.JPG)
  - Chat Page
